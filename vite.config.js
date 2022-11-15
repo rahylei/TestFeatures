@@ -8,7 +8,8 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'public/css/flowbite.css', 
-                'public/js/flowbite.js'
+                'public/js/flowbite.js',
+                'public/js/flowbite.js.map'
             ],
             refresh: [
                 ...refreshPaths,
