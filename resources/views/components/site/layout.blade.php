@@ -23,7 +23,7 @@
             <x-site.nav-bar/>
 
             <main>
-                {{ $slot }}
+                {{ $main }}
             </main>
         </div>
 
