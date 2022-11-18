@@ -3,17 +3,19 @@
 namespace App\View\Components\Site;
 
 use Illuminate\View\Component;
+use App\Models\Home\Carousel;
 
-class Carousel extends Component
+class CarouselE extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public $carousels;
+    public function __construct(Carousel $carousels)
     {
-        //
+        $this->carousels = $carousels->all();
     }
 
     /**
@@ -23,6 +25,6 @@ class Carousel extends Component
      */
     public function render()
     {
-        return view('components.site.carousel');
+        return view('components.site.carousel-e');
     }
 }

@@ -1,16 +1,15 @@
 
-<div id="default-carousel" class="relative z-0" data-carousel="static">
+<div id="default-carousel" class="relative z-0" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-         <!-- Item 1 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
-            <img src="https://s1.1zoom.me/big3/471/Painting_Art_Back_view_Photographer_575380_3840x2400.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 2 -->
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://s1.1zoom.me/big0/237/Painting_Art_Face_Glasses_Blonde_girl_Hairstyle_573621_1280x720.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
+        @forelse ($carousels as $item)
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+                <a href="{{$item->url}}" target="_blank"><img src="{{asset($item->storage)}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."></a>
+            </div>
+        @empty
+            
+        @endforelse
     </div>
     <!-- Slider indicators -->
     <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
@@ -31,4 +30,14 @@
             <span class="sr-only">Next</span>
         </span>
     </button>
+</div>
+
+ <!-- Item 1 -->
+ <div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <span class="absolute text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 sm:text-3xl dark:text-gray-800">First Slide</span>
+    <img src="https://s1.1zoom.me/big3/471/Painting_Art_Back_view_Photographer_575380_3840x2400.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+</div>
+<!-- Item 2 -->
+<div class="hidden duration-700 ease-in-out" data-carousel-item>
+    <img src="https://s1.1zoom.me/big0/237/Painting_Art_Face_Glasses_Blonde_girl_Hairstyle_573621_1280x720.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
 </div>
