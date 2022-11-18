@@ -4,7 +4,7 @@
 
         @switch($type)
             @case("carousel")
-                Aqui van las opciones del carousel...
+                <livewire:admin.forms.form-carousel/>
                 @break
             @case("difusion_universitaria")
                 Aqui irian los blogs...
