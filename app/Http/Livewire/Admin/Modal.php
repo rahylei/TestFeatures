@@ -8,6 +8,7 @@ use LivewireUI\Modal\ModalComponent;
 class Modal extends ModalComponent
 {
 
+    //protected $listeners = ['closeModal' => '$refresh'];
     public $type;
     public $seccion;
     //public $submdule;$submodule = null
@@ -16,6 +17,16 @@ class Modal extends ModalComponent
         $this->seccion = $seccion;
         $this->type = $type;
         //$this->submodule = $submodule;
+    }
+
+    public static function modalMaxWidth(): string
+    {
+        return '7xl';
+    }
+
+    public static function closeModalOnEscape(): bool
+    {
+        return true;
     }
 
     public function render()

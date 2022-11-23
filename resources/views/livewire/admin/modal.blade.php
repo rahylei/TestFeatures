@@ -1,10 +1,11 @@
-<div>
+<div >
     @switch($seccion)
     @case("home")
 
         @switch($type)
             @case("carousel")
-                <livewire:admin.forms.form-carousel/>
+                {{-- <livewire:admin.forms.form-carousel/> --}}
+                <livewire:admin.modal-menu/>
                 @break
             @case("difusion_universitaria")
                 Aqui irian los blogs...
