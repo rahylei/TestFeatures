@@ -22,7 +22,9 @@
                             
                             
                                 <livewire:admin.utils.table 
-                                :cols="collect(['storage', 'active'])" />
+                                :cols="collect(['storage', 'active'])" 
+                                form="carousel-form"
+                                model="carousel"/>
                                 
                             </div>
                         </div>

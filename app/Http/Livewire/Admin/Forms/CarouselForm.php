@@ -87,6 +87,10 @@ class CarouselForm extends ModalComponent
         $this->redirect('layout');
     }
 
+    public function close(){
+        $this->closeModal();
+    }
+
     public function render()
     {
         return view('livewire.admin.forms.carousel-form');

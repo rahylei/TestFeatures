@@ -10,9 +10,13 @@ class Table extends Component
 
     public $cols;
     public $items;
+    public $form;
+    public $model;
 
-    public function mount($cols,Carousel $items){
+    public function mount($cols, $form, $model, Carousel $items){
         $this->cols = $cols;
+        $this->form = $form;
+        $this->model = $model;
         $this->items = $items->all();
     }
 
