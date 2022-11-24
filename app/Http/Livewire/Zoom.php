@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class Zoom extends Component
+class Zoom extends ModalComponent
 {
 
     public $text;

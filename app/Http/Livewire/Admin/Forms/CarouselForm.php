@@ -2,15 +2,14 @@
 
 namespace App\Http\Livewire\Admin\Forms;
 
-use LivewireUI\Modal\ModalComponent;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use App\Models\Home\Carousel;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use LivewireUI\Modal\ModalComponent;
 
-class FormCarousel extends ModalComponent
+class CarouselForm extends ModalComponent
 {
-
     use WithFileUploads;
 
     public $photo;
@@ -18,17 +17,11 @@ class FormCarousel extends ModalComponent
     public $url;
     public $action;
     public $carousel;
-    protected $listeners = ['create' => 'respound'];
 
     public function mount($action, Carousel $carousel){
         $this->action = $action;
         $this->carousel = $carousel;
     }
-
-    public function respound(){
-        $this->reset();
-    }
-
 
     public function save(){
 
@@ -48,7 +41,7 @@ class FormCarousel extends ModalComponent
             "url" => $this->url
         ]);
 
-        $this->emit('create');
+        $this->redirect('layout');
     }
 
     public function update(Carousel $carousel){
@@ -91,11 +84,11 @@ class FormCarousel extends ModalComponent
 
     public function delete(Carousel $carousel){
         $carousel->delete();
-        $this->emit('delete');
+        $this->redirect('layout');
     }
 
     public function render()
     {
-        return view('livewire.admin.forms.form-carousel');
+        return view('livewire.admin.forms.carousel-form');
     }
 }
