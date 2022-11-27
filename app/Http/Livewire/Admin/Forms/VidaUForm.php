@@ -3,24 +3,24 @@
 namespace App\Http\Livewire\Admin\Forms;
 
 use Livewire\Component;
-use App\Models\Home\Carousel;
+use App\Models\Home\VidaUniversitaria;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 
-class CarouselForm extends ModalComponent
+class VidaUForm extends ModalComponent
 {
+
     use WithFileUploads;
 
     public $photo;
     public $storage;
-    public $url;
     public $action;
-    public $carousel;
+    public $vidauniversitaria;
 
-    public function mount($action, Carousel $carousel){
+    public function mount($action, VidaUniversitaria $vidauniversitaria){
         $this->action = $action;
-        $this->carousel = $carousel;
+        $this->$vidauniversitaria = $vidauniversitaria;
     }
 
     public function save(){
@@ -36,15 +36,14 @@ class CarouselForm extends ModalComponent
         $this->photo->storeAs( "public", $name);
         $this->storage = Storage::url($name);
 
-        Carousel::create([
+        VidaUniversitaria::create([
             "storage" => $this->storage,
-            "url" => $this->url
         ]);
 
         $this->redirect('layout');
     }
 
-    public function update(Carousel $carousel){
+    public function update(VidaUniversitaria $vidauniversitaria){
 
         $this->validate([
 
@@ -57,25 +56,24 @@ class CarouselForm extends ModalComponent
         $this->photo->storeAs( "public", $name);
         $this->storage = Storage::url($name);
 
-        $carousel->update([
+        $vidauniversitaria->update([
             "storage" => $this->storage,
-            "url" => $this->url
         ]);
 
         $this->emit('update');
     }
 
-    public function status(Carousel $carousel){
-        if ($carousel->active) {
-            $this->inactive($carousel);
+    public function status(VidaUniversitaria $vidauniversitaria){
+        if ($vidauniversitaria->active) {
+            $this->inactive($vidauniversitaria);
         } else {
-            $this->active($carousel);
+            $this->active($vidauniversitaria);
         }
         
     }
 
-    public function active(Carousel $carousel){
-        $carousel->update([
+    public function active(VidaUniversitaria $vidauniversitaria){
+        $vidauniversitaria->update([
             "active" => true
         ]);
 
@@ -83,16 +81,16 @@ class CarouselForm extends ModalComponent
     }
 
 
-    public function inactive(Carousel $carousel){
-        $carousel->update([
+    public function inactive(VidaUniversitaria $vidauniversitaria){
+        $vidauniversitaria->update([
             "active" => false
         ]);
         
         $this->redirect('layout');
     }
 
-    public function delete(Carousel $carousel){
-        $carousel->delete();
+    public function delete(VidaUniversitaria $vidauniversitaria){
+        $vidauniversitaria->delete();
         $this->redirect('layout');
     }
 
@@ -100,8 +98,9 @@ class CarouselForm extends ModalComponent
         $this->closeModal();
     }
 
+
     public function render()
     {
-        return view('livewire.admin.forms.carousel-form');
+        return view('livewire.admin.forms.vida-u-form');
     }
 }

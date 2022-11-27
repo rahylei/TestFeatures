@@ -3,10 +3,11 @@
 namespace App\Http\Livewire\Admin\Utils;
 
 use Livewire\Component;
-use App\Models\Home\Carousel;
+use App\Models\Home\VidaUniversitaria;
 
-class Table extends Component
+class TableVidaU extends Component
 {
+
 
     public $type;
     public $cols;
@@ -15,7 +16,7 @@ class Table extends Component
     public $model;
     public $action;
 
-    public function mount($type, $cols, $form, $model, $action, Carousel $items){
+    public function mount($type, $cols, $form, $model, $action, VidaUniversitaria $items){
         $this->type = $type;
         $this->cols = $cols;
         $this->form = $form;
@@ -23,8 +24,9 @@ class Table extends Component
         $this->items = $items;
     }
 
+
     public function render()
     {
-        return view('livewire.admin.utils.table');
+        return view('livewire.admin.utils.table-vida-u');
     }
 }

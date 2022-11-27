@@ -2,7 +2,7 @@
     @switch($action)
         @case("create")
             
-            <form wire:submit.prevent="save">
+            <form class="px-4 py-8" wire:submit.prevent="save">
 
                 @if ($photo)
 
@@ -29,7 +29,7 @@
         @case("edit")
 
                     
-            <form wire:submit.prevent="update({{$carousel}})">
+            <form class="px-4 py-8" wire:submit.prevent="update({{$carousel}})">
 
                 @if ($photo)
 
@@ -57,6 +57,15 @@
             </form>
             @break
 
+        @case("list")
+                <livewire:admin.utils.table 
+                :type="collect([false])"
+                :cols="collect(['storage', 'active', 'url' ])" 
+                form="carousel-form"
+                action="status"
+                model="carousel"/>
+            @break
+{{-- 
         @case("inactive")
             <form wire:submit.prevent="inactive({{$carousel}})" action="">
                 <button wire:click="$emit('closeModal')" class="text-white bg-red-800 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Cancel</button>
@@ -69,8 +78,14 @@
                 <button wire:click="$emit('closeModal')" class="text-white bg-red-800 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Cancel</button>
                 <button type="submit" wire:click="$emit('closeModal')" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Change Status?</button>
             </form>
-            @break    
+            @break     --}}
 
+        @case("status")
+            <form class="px-4 py-8" wire:submit.prevent="" action="">
+                <button wire:click="$emit('closeModal')" class="text-white bg-red-800 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Cancel</button>
+                <button type="submit" wire:click="status({{$carousel}})" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Change Status?</button>
+            </form>
+            @break
 
         @case("delete")
             <form class="px-4 py-8" wire:submit.prevent="" action="">

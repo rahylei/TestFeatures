@@ -22,8 +22,10 @@
                             
                             
                                 <livewire:admin.utils.table 
-                                :cols="collect(['storage', 'active'])" 
+                                :type="collect([true])"
+                                :cols="collect(['storage'])" 
                                 form="carousel-form"
+                                action="status"
                                 model="carousel"/>
                                 
                             </div>
@@ -48,6 +50,19 @@
 
                         <div class="p-6 border-t md:border-l-0 border-gray-200 dark:border-gray-700">
                             Vida universitaria
+                            <div class="flex flex-col-2 md:flex-col lg:flex-col-1">
+                                
+                                <livewire:admin.utils.form-home area="vida_universitaria"/>
+                            
+                            
+                                <livewire:admin.utils.table-vida-u 
+                                :type="collect([true])"
+                                :cols="collect(['storage'])" 
+                                form="vida-u-form"
+                                action="status"
+                                model="vidauniversitaria"/>
+                                
+                            </div>
                         </div>
 
                         <div class="p-6 border-t md:border-l border-gray-200 dark:border-gray-700">

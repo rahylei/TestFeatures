@@ -15,7 +15,7 @@ class CarouselE extends Component
     public $carousels;
     public function __construct(Carousel $carousels)
     {
-        $this->carousels = $carousels->all();
+        $this->carousels = $carousels->where('active', true)->get();
     }
 
     /**
