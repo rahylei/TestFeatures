@@ -1,4 +1,4 @@
-<x-sidebar.overlay />
+<x-kuijet.sidebar.overlay />
 
 <aside class="fixed inset-y-0 z-20 flex flex-col py-4 space-y-6 bg-white shadow-lg dark:bg-dark-eval-1" 
         :class="{
@@ -8,9 +8,9 @@
         style="transition-property: width, transform; transition-duration: 150ms;"
         @mouseenter="handleSidebarHover(true)" @mouseleave="handleSidebarHover(false)"
 >
-    <x-sidebar.header />
+    <x-kuijet.sidebar.header />
 
-    <x-sidebar.content />
+    <x-kuijet.sidebar.content />
     
-    <x-sidebar.footer />
+    <x-kuijet.sidebar.footer />
 </aside>

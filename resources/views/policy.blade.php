@@ -3,7 +3,7 @@
         <div class="min-h-screen flex flex-col items-center pt-6 sm:pt-0">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20" />
+                    <x-kuijet.application-logo class="w-20 h-20" />
                 </a>
             </div>
 

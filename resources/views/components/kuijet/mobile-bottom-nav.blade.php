@@ -3,18 +3,18 @@
         'translate-y-full': scrollingDown,
         'translate-y-0': scrollingUp,
     }">
-    <x-button type="button" iconOnly variant="secondary" srText="Search">
+    <x-kuijet.button type="button" iconOnly variant="secondary" srText="Search">
         <x-heroicon-o-search aria-hidden="true" class="w-6 h-6" />
-    </x-button>
+    </x-kuijet.button>
 
     <a href="{{ route('dashboard') }}">
-        <x-application-logo aria-hidden="true" class="w-10 h-10" />
+        <x-kuijet.application-logo aria-hidden="true" class="w-10 h-10" />
         <span class="sr-only">Dashboard</span>
     </a>
 
-    <x-button type="button" iconOnly variant="secondary" srText="Open main menu"
+    <x-kuijet.button type="button" iconOnly variant="secondary" srText="Open main menu"
         @click="isSidebarOpen = !isSidebarOpen">
         <x-heroicon-o-menu x-show="!isSidebarOpen" aria-hidden="true" class="w-6 h-6" />
         <x-heroicon-o-x x-show="isSidebarOpen" aria-hidden="true" class="w-6 h-6" />
-    </x-button>
+    </x-kuijet.button>
 </div>

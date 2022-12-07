@@ -15,7 +15,7 @@
 </span>
 
 @once
-<x-dialog-modal wire:model="confirmingPassword">
+<x-kuijet.dialog-modal wire:model="confirmingPassword">
     <x-slot name="title">
         {{ $title }}
     </x-slot>
@@ -24,23 +24,23 @@
         {{ $content }}
 
         <div class="mt-4" x-data="{}" x-on:confirming-password.window="setTimeout(() => $refs.confirmable_password.focus(), 250)">
-            <x-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}"
+            <x-kuijet.input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}"
                         x-ref="confirmable_password"
                         wire:model.defer="confirmablePassword"
                         wire:keydown.enter="confirmPassword" />
 
-            <x-input-error for="confirmable_password" class="mt-2" />
+            <x-kuijet.input-error for="confirmable_password" class="mt-2" />
         </div>
     </x-slot>
 
     <x-slot name="footer">
-        <x-button variant="info" wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
+        <x-kuijet.button variant="info" wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
             {{ __('Cancel') }}
-        </x-button>
+        </x-kuijet.button>
 
-        <x-button class="ml-2" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
+        <x-kuijet.button class="ml-2" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
             {{ $button }}
-        </x-button>
+        </x-kuijet.button>
     </x-slot>
-</x-dialog-modal>
+</x-kuijet.dialog-modal>
 @endonce

@@ -1,13 +1,13 @@
 @props(['active' => false, 'title' => ''])
 
 <div class="relative" x-data="{ open: @json($active) }">
-    <x-sidebar.link collapsible title="{{ $title }}" @click="open = !open" isActive="{{ $active }}">
+    <x-kuijet.sidebar.link collapsible title="{{ $title }}" @click="open = !open" isActive="{{ $active }}">
         @if ($icon ?? false)
         <x-slot name="icon">
             {{ $icon }}
         </x-slot>
         @endif
-    </x-sidebar.link>
+    </x-kuijet.sidebar.link>
 
     <div x-show="open && (isSidebarOpen || isSidebarHovered)" x-collapse>
         <ul

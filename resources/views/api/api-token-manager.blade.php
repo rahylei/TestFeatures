@@ -1,6 +1,6 @@
 <div class="grid gap-10">
     <!-- Generate API Token -->
-    <x-form-section submit="createApiToken">
+    <x-kuijet.form-section submit="createApiToken">
         <x-slot name="title">
             {{ __('Create API Token') }}
         </x-slot>
@@ -12,20 +12,20 @@
         <x-slot name="form">
             <!-- Token Name -->
             <div class="col-span-6 sm:col-span-4">
-                <x-label for="name" value="{{ __('Token Name') }}" />
-                <x-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="createApiTokenForm.name" autofocus />
-                <x-input-error for="name" class="mt-2" />
+                <x-kuijet.label for="name" value="{{ __('Token Name') }}" />
+                <x-kuijet.input id="name" type="text" class="mt-1 block w-full" wire:model.defer="createApiTokenForm.name" autofocus />
+                <x-kuijet.input-error for="name" class="mt-2" />
             </div>
 
             <!-- Token Permissions -->
             @if (Laravel\Jetstream\Jetstream::hasPermissions())
                 <div class="col-span-6">
-                    <x-label for="permissions" value="{{ __('Permissions') }}" />
+                    <x-kuijet.label for="permissions" value="{{ __('Permissions') }}" />
 
                     <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                         @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                             <label class="flex items-center">
-                                <x-checkbox wire:model.defer="createApiTokenForm.permissions" :value="$permission"/>
+                                <x-kuijet.checkbox wire:model.defer="createApiTokenForm.permissions" :value="$permission"/>
                                 <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ $permission }}</span>
                             </label>
                         @endforeach
@@ -35,20 +35,20 @@
         </x-slot>
 
         <x-slot name="actions">
-            <x-action-message class="mr-3" on="created">
+            <x-kuijet.action-message class="mr-3" on="created">
                 {{ __('Created.') }}
-            </x-action-message>
+            </x-kuijet.action-message>
 
-            <x-button>
+            <x-kuijet.button>
                 {{ __('Create') }}
-            </x-button>
+            </x-kuijet.button>
         </x-slot>
-    </x-form-section>
+    </x-kuijet.form-section>
 
     @if ($this->user->tokens->isNotEmpty())
         <!-- Manage API Tokens -->
         <div class="mt-10 sm:mt-0">
-            <x-action-section>
+            <x-kuijet.action-section>
                 <x-slot name="title">
                     {{ __('Manage API Tokens') }}
                 </x-slot>
@@ -87,12 +87,12 @@
                         @endforeach
                     </div>
                 </x-slot>
-            </x-action-section>
+            </x-kuijet.action-section>
         </div>
     @endif
 
     <!-- Token Value Modal -->
-    <x-dialog-modal wire:model="displayingToken">
+    <x-kuijet.dialog-modal wire:model="displayingToken">
         <x-slot name="title">
             {{ __('API Token') }}
         </x-slot>
@@ -110,14 +110,14 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button variant="info" wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
+            <x-kuijet.button variant="info" wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
                 {{ __('Close') }}
             </x-button>
         </x-slot>
-    </x-dialog-modal>
+    </x-kuijet.dialog-modal>
 
     <!-- API Token Permissions Modal -->
-    <x-dialog-modal wire:model="managingApiTokenPermissions">
+    <x-kuijet.dialog-modal wire:model="managingApiTokenPermissions">
         <x-slot name="title">
             {{ __('API Token Permissions') }}
         </x-slot>
@@ -126,7 +126,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                     <label class="flex items-center">
-                        <x-checkbox wire:model.defer="updateApiTokenForm.permissions" :value="$permission"/>
+                        <x-kuijet.checkbox wire:model.defer="updateApiTokenForm.permissions" :value="$permission"/>
                         <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ $permission }}</span>
                     </label>
                 @endforeach
@@ -134,18 +134,18 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button variant="info" wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
+            <x-kuijet.button variant="info" wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button>
+            </x-kuijet.button>
 
-            <x-button class="ml-2" wire:click="updateApiToken" wire:loading.attr="disabled">
+            <x-kuijet.button class="ml-2" wire:click="updateApiToken" wire:loading.attr="disabled">
                 {{ __('Save') }}
-            </x-button>
+            </x-kuijet.button>
         </x-slot>
-    </x-dialog-modal>
+    </x-kuijet.dialog-modal>
 
     <!-- Delete Token Confirmation Modal -->
-    <x-confirmation-modal wire:model="confirmingApiTokenDeletion">
+    <x-kuijet.confirmation-modal wire:model="confirmingApiTokenDeletion">
         <x-slot name="title">
             {{ __('Delete API Token') }}
         </x-slot>
@@ -155,13 +155,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button variant="info" wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
+            <x-kuijet.button variant="info" wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button>
+            </x-kuijet.button>
 
-            <x-button variant="danger" class="ml-2" wire:click="deleteApiToken" wire:loading.attr="disabled">
+            <x-kuijet.button variant="danger" class="ml-2" wire:click="deleteApiToken" wire:loading.attr="disabled">
                 {{ __('Delete') }}
-            </x-button>
+            </x-kuijet.button>
         </x-slot>
-    </x-confirmation-modal>
+    </x-kuijet.confirmation-modal>
 </div>

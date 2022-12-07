@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-auth-card>
+    <x-kuijet.auth-card>
         <div x-data="{ recovery: false }">
             <div class="mb-4 text-sm text-gray-600 dark:text-gray-400" x-show="! recovery">
                 {{ __('Please confirm access to your account by entering the authentication code provided by your
@@ -10,20 +10,20 @@
                 {{ __('Please confirm access to your account by entering one of your emergency recovery codes.') }}
             </div>
 
-            <x-validation-errors class="mb-4" />
+            <x-kuijet.validation-errors class="mb-4" />
 
             <form method="POST" action="{{ route('two-factor.login') }}">
                 @csrf
 
                 <div class="mt-4" x-show="! recovery">
-                    <x-label for="code" value="{{ __('Code') }}" />
-                    <x-input id="code" class="block w-full mt-1" type="text" inputmode="numeric" name="code"
+                    <x-kuijet.label for="code" value="{{ __('Code') }}" />
+                    <x-kuijet.input id="code" class="block w-full mt-1" type="text" inputmode="numeric" name="code"
                         autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-show="recovery">
-                    <x-label for="recovery_code" value="{{ __('Recovery Code') }}" />
-                    <x-input id="recovery_code" class="block w-full mt-1" type="text" name="recovery_code"
+                    <x-kuijet.label for="recovery_code" value="{{ __('Recovery Code') }}" />
+                    <x-kuijet.input id="recovery_code" class="block w-full mt-1" type="text" name="recovery_code"
                         x-ref="recovery_code" autocomplete="one-time-code" />
                 </div>
 
@@ -44,11 +44,11 @@
                         {{ __('Use an authentication code') }}
                     </button>
 
-                    <x-button class="ml-4">
+                    <x-kuijet.button class="ml-4">
                         {{ __('Log in') }}
-                    </x-button>
+                    </x-kuijet.button>
                 </div>
             </form>
         </div>
-    </x-auth-card>
+    </x-kuijet.auth-card>
 </x-guest-layout>

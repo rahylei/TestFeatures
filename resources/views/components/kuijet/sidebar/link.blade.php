@@ -13,7 +13,7 @@
         @if ($icon ?? false)
             {{ $icon }}
         @else
-            <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+            <x-kuijet.icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         @endif
 
         <span class="text-base font-medium whitespace-nowrap" x-show="isSidebarOpen || isSidebarHovered">
@@ -30,7 +30,7 @@
         @if ($icon ?? false)
             {{ $icon }}
         @else
-            <x-icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
+            <x-kuijet.icons.empty-circle class="flex-shrink-0 w-6 h-6" aria-hidden="true" />
         @endif
 
         <span class="text-base font-medium" x-show="isSidebarOpen || isSidebarHovered">

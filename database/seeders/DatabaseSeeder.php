@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            UserDefaultSeeder::class
+            UserDefaultSeeder::class,
+            ModuleSeeder::class
         ])
     }
 }

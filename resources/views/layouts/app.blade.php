@@ -29,11 +29,11 @@
 <body class="font-sans antialiased text-gray-900 dark:text-gray-200">
     
     <div x-data="mainState" :class="{ dark: isDarkMode }" @resize.window="handleWindowResize" x-cloak>
-        <x-banner />
+        <x-kuijet.banner />
         
         <div class="min-h-screen text-gray-900 bg-gray-100 dark:bg-dark-eval-0 dark:text-gray-200">
             <!-- Sidebar -->
-            <x-sidebar.sidebar />
+            <x-kuijet.sidebar.sidebar />
 
             <!-- Page Wrapper -->
             <div class="flex flex-col min-h-screen" :class="{ 
@@ -43,7 +43,7 @@
 
                 @livewire('navigation-menu')
 
-                <x-mobile-bottom-nav />
+                <x-kuijet.mobile-bottom-nav />
 
                 <!-- Page Heading -->
                 @if (isset($header))
@@ -60,7 +60,7 @@
                 </main>
 
                 <!-- Page Footer -->
-                <x-footer />
+                <x-kuijet.footer />
             </div>
         </div>
     </div>
